@@ -1,0 +1,12 @@
+mkdir rep
+cd rep
+git init
+
+//Add folders and files
+
+git add <file|folder|.>
+git commit -m "<message>"
+
+git remote add origin https://github.com/<username>/<repname>.git
+
+git push -u origin master
