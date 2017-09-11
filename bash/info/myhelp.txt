@@ -1,0 +1,58 @@
+Предотвращает случайное удаление файлов.
+mkdir		=		mkdir -p
+
+Утилиты
+h	=	history
+j	=	jobs -l
+r	=	rlogin
+which	=	type -all
+..	=	cd ..
+path	=	echo -e ${PATH//:/\\n}
+print	=	/usr/bin/lp -o nobanner -d $LPDEST  		Предполагается, что LPDEST определен
+pjet	=	enscript -h -G -fCourier9 -d $LPDEST  		Печать через enscript
+background	=	xv -root -quit -max -rmode 5    	Положить картинку в качестве фона
+du	=	du -kh
+df	=	df -kTh
+
+Различные варианты ls (предполагается, что установлена GNU-версия ls)
+la	=	ls -Al              	 показать скрытые файлы
+ls	=	ls -hF --color      	 выделить различные типы файлов цветом
+lx	=	ls -lXB             	 сортировка по расширению
+lk	=	ls -lSr             	 сортировка по размеру
+lc	=	ls -lcr             	 сортировка по времени изменения
+lu	=	ls -lur             	 сортировка по времени последнего обращения
+lr	=	ls -lR              	 рекурсивный обход подкаталогов
+lt	=	ls -ltr             	 сортировка по дате
+lm	=	ls -al |more         	 вывод через more
+tree	=	tree -Csu          	 альтернатива ls
+
+Быстрое редактирование
+Sublime editor
+Файл bashrc			sublrc    =    subl ~/.bashrc >> ~/session/dump/logs/subl.log &
+Файл session.sh     sublss    =    subl ~/session/session.sh >> ~/session/dump/logs/subl.log &
+Файл autorun.py     sublar    =    subl ~/session/autorun.py >> ~/session/dump/logs/subl.log &
+Файл Xresources     sublxr    =    subl ~/.Xresources >> ~/session/dump/logs/subl.log &
+Файл myhelp.txt		sublmh    =    subl ~/session/info/myhelp.txt >> ~/session/dump/logs/subl.log &
+Nano editor
+Файл bashrc			nanorc    =    nano ~/.bashrc
+Файл session.sh     nanoss    =    nano ~/session/session.sh
+Файл autorun.py     nanoar    =    nano ~/session/autorun.py
+Файл Xresources     nanoxr    =    nano ~/.Xresources
+Файл myhelp.txt		nanomh    =    nano ~/session/info/myhelp.txt
+
+Программы
+Хром инкогнито			chi			=	chromium-browser --incognito >> ~/session/dump/logs/chromium.log &
+Хром обычный 			chni		=	chromium-browser >> ~/session/dump/logs/chromium.log &
+Среда ipython			ipye		=	cd ~/pycode/ipy_dir && ./ipy.sh && cd $OLDPATH"
+Среда bpython			bpye		=	cd ~/pycode/bpy_dir && ./bpy.sh
+Перезагрузить bashrc	shc			=	source ~/.bashrc
+Gnome терминал			gtrm		=	gnome-terminal &
+XTerm терминал			xtrm		=	xterm &
+UXTerm терминал			utrm		=	uxterm &
+Показать эту справку	myhelp		=	cat ~/session/info/myhelp.txt
+MC с цветовой схемой	mcfar		=	mc --skin=darkfar -a --xterm
+MC как mcfar			mcfar   	=	mcfar
+MATLAB Среда  			mlenv   	=	OLDPATH="$(pwd)" && cd ~/matlabcode && ./mlenv.sh && cd $OLDPATH
+Установить новый алиас 	setalias 	=	/home/hjk/session/utils/./aalias.py
+Открыть файл в subl 	msubl		=	/home/hjk/session/utils/./asubl.py
+

@@ -1,0 +1,46 @@
+My Help(part 2)
+
+Пути:
+GOBN        -        "/usr/local/go/bin"
+GOSRC        -        "/home/hjk/go/src"
+UHOME        -        "/home/hjk"
+QPRJD        -        "/home/hjk/qt_projects"
+CODED        -        "/home/hjk/code"
+UIRD        -        "/home/hjk/code/sem6/uir"
+SEM6D        -        "/home/hjk/code/sem6"
+RBCODE        -        "/home/hjk/rbcode"
+NIXAD        -        "/home/hjk/unix_a"
+DOWNLOADS        -        "/home/hjk/Загрузки"
+QT56        -        "/home/hjk/Qt5.6.1"
+QTC56        -        "/home/hjk/Qt5.6.1/Tools/QtCreator"
+QTCB56        -        "/home/hjk/Qt5.6.1/Tools/QtCreator/bin"
+SHCODE        -        "/home/hjk/shcode"
+SSDIR        -        "/home/hjk/session"
+SSU        -        "/home/hjk/session/utils"
+SSI        -        "/home/hjk/session/info"
+SSL        -        "/home/hjk/session/log"
+SSD        -        "/home/hjk/session/dump"
+BLDD        -        "/home/hjk/build"
+WEBFILES        -        "/home/hjk/webfiles"
+CURRENT_PATH        -        ""
+IPY        -        "/usr/bin/ipython"
+
+Информация и помощь:
+mhlp        -        Показать эту справку
+myhelp2        -        Показать эту справку
+sublmh2        -        Редактировать эту справку в Sublime Editor
+nanomh2        -        Редактировать эту справку в nano
+
+Работа с архивами:
+mutgz        -        Рапаковать из tar.gz
+mtgz        -        Запаковать в tar.gz
+mtgf        -        Просмотр tar.gz
+mtgfd        -        Расширенный просмотр tar.gz
+muzip        -        Рапаковать из zip
+mzip        -        Запаковать в zip
+mzipf        -        Просмотр zip
+
+Переходы между директориями:
+cdcp        -        Перейти в директорию и запомнить исходный путь
+cdback        -        Вернуться в исходную директорию
+shcp        -        Показать исходную директорию
