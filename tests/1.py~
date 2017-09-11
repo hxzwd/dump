@@ -1,0 +1,56 @@
+import numpy as np
+from pyfann.libfann import *
+from math import *
+
+num_input = 1
+num_output = 1
+num_layers = 3
+num_neurons_hidden = 2
+
+angleRange = 3.0
+angleStep = 0.1
+instances = int(angleRange/angleStep)
+
+ann = neural_net()
+
+ann.create_standard(num_layers, num_input, num_neurons_hidden, num_output)
+
+ann.set_activation_function_hidden(SIGMOID_SYMMETRIC)
+ann.set_activation_function_output(SIGMOID_SYMMETRIC)
+
+ann.set_train_stop_function(STOPFUNC_BIT)
+ann.set_bit_fail_limit(0.02)
+
+set_training_algorithm(TRAIN_INCREMENTAL)
+randomize_weights(0, 1)
+
+
+trainingSet = create_train(instances, 1, 1)
+angle = 0
+
+instance = 0
+
+print "lala\t", ann.get_total_neurons()
+
+while(instance < instances):
+	trainingSet.input[instance][0] = angle
+	trainingSet.output[instance][0] = sin(angle)
+	angle += angleStep
+	instance += 1
+	 
+
+ann.fann_train_on_data(trainingSet, 20000, 10, 1e-8)
+
+k = 0
+angle = 0
+
+instance = 0
+
+while(instance < instances):
+	sin_angle = sin(angle)
+	o = ann.run(ann, angle)
+	angle += angleStep
+	instance += 1
+	print k, '\t', o, '\t', sin_angle
+	k += 1
+

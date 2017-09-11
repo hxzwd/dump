@@ -1,0 +1,67 @@
+from math import *
+import random as rnd
+import os
+import sys
+import numpy as np
+
+def ReadData(file_name = "out.log"):
+	File = open(file_name, "r")
+	values = []
+	x_ticks = []
+	y_ticks = []
+	z_ticks = []	
+	tmp = []
+	parts = []
+
+	lines = File.readlines()
+	tmp = map(lambda x: x.split(), lines)
+	tmp = map(lambda a: map(lambda x: float(x), a), tmp)
+	counter = 0
+	
+
+	while counter < tmp.count([]):
+		values = np.array(tmp[:tmp.index([])]).T.tolist()
+		y_ticks.append(values[0])
+		x_ticks.append(values[1])
+		z_ticks.append(values[2])
+		tmp = tmp[tmp.index([]) + 1:]
+		counter += 1
+		
+	
+	File.close()
+	return [x_ticks, y_ticks, z_ticks]
+
+def WriteData(Data, file_name = "new_out.log"):
+	File = open(file_name, "w+")
+	x = Data[0]
+	y = Data[1]
+	n = len(x)
+	m = len(x[0])
+	counter = 0
+	pairs = [[x[i][j], y[i][j]] for i in range(0, len(x)) for j in range(0, len(x[0]))]
+	File.write(str(np.array(x).size))
+	for index, value in enumerate(pairs):
+		if(index != 0 and ((index) % m) == 0):
+			File.write('\n')
+		File.write('\n' + str(value[0]) + '\t' + str(value[1]))
+		
+	File.close()
+
+
+mu = 0.0
+sigma = 1.0
+
+xl = [0.0, 3.0]
+yl = [0.0, 3.0]
+data = ReadData()
+
+parts = len(data[0])
+
+step = abs((xl[0] - xl[1]))/float(parts)
+mu = 0.0
+sigma = step/2.0
+
+noise = np.random.normal(mu, sigma, np.array(data[0]).shape)
+WriteData([data[0] + noise, data[1] + noise])
+print np.array(data[0]).size
+
