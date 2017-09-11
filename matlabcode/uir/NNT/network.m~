@@ -1,0 +1,15 @@
+InputFiles = ['TeachingData_finall_normaliezed.txt', 'TeachingData_finall_normaliezed.txt']
+Files = []
+format long
+
+for i = 1:length(InputFiles)
+	Files = [Files fopen(string(InputFiles(i)), string('r'))]
+end
+
+DataArrays = []
+
+for i = 1:length(InputFiles)
+	tmp = fscanf(Files(i), ['%f', '%f', '%f', '%f'])
+	tmp = reshape(tmp, 4, length(tmp)/4)
+	DataArrays = [DataArrays tmp]
+end

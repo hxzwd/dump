@@ -1,0 +1,91 @@
+import pandas as pd
+import numpy as np
+import sys
+import os
+import re
+
+InputFiles = ['gout_indexed.txt']
+TestDataSize = 0.5
+OutputFiles = ('TeachingData.txt', 'TestData.txt')
+Out1 = open(OutputFiles[0], 'w+')
+Out2 = open(OutputFiles[1], 'w+')
+ResultDir = "final_text_data"
+
+NLines = []
+FilesInfo = []
+
+for i in InputFiles:
+	tmp = open(i, 'r')
+	N = len(tmp.readlines())
+	FilesInfo.append([i, N, tmp])
+	NLines.append(N)
+	tmp.seek(0)
+
+InputFile = FilesInfo[0]
+
+TotalData = sum(NLines)
+TestLimit = int(InputFile[1]*TestDataSize)
+TeachingLimit = InputFile[1] - TestLimit
+
+print "Input Files: ", "".join(i + ' ' for i in InputFiles)
+print "Total Data: ", TotalData
+print "Test Data: ",  TestLimit
+print "Teaching Data: ", TeachingLimit 
+print "Output Files: ", "".join(i + ' ' for i in OutputFiles)
+
+In1 = FilesInfo.pop().pop()
+FileBuffer = In1.readlines()
+
+Out1.write('Input\tOutput\n')
+counter = 0
+while counter < TeachingLimit: 
+	x = FileBuffer[counter].strip()
+	y = FileBuffer[counter + 1].strip()
+	counter = counter + 1
+	Out1.write(x + '\t' + y + '\n')
+
+Out2.write('Input\tOutput\n')
+while counter < TotalData - 1:
+	x = FileBuffer[counter].strip()
+	y = FileBuffer[counter + 1].strip()
+	counter = counter + 1
+	Out2.write(x + '\t' + y + '\n')
+
+
+
+
+
+Out1.close()
+Out2.close()
+for i in FilesInfo:
+	i[-1].close()
+
+
+if ResultDir not in os.listdir(os.getcwd()):
+	os.mkdir(ResultDir)
+	
+
+Files = [open(i, 'r') for i in OutputFiles]
+os.chdir(ResultDir)
+FinallData = [open(f.name[0:f.name.index('.')] + '_finall.txt', 'w+') for f in Files]
+
+print "Final Data Files: " ,"".join(ResultDir + "\\" + i.name + " " for i in FinallData) + "\n"
+
+for i in Files:
+	i.readline()
+
+for index, value in enumerate(Files):
+	for lines in value:
+		tmp = lines.strip().split('\t')
+		tmp = ["".join(i + '\t' for i in x.split()[1:-1]) + x.split()[-1] for x in tmp]
+		tmp_str = "".join(value + int(index != len(tmp) - 1)*'\t' for index, value in enumerate(tmp)) + '\n'
+		FinallData[index].write(tmp_str)
+
+
+
+for i in Files:
+	i.close()
+for i in FinallData:
+	i.close()
+
+os.chdir("..//")

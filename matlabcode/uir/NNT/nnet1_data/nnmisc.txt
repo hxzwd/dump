@@ -1,0 +1,17 @@
+Misc information:
+
+Sum squared error is 4414.264422
+Max absolute error is 7.877771
+Max procent error is 3293.972250%
+
+Misc information:
+ neural network name: Custom Neural Network\n neural network userdata: Put your custom network information here.
+
+Max error at [1822] is 3293.972250%
+Neural network output at [1822] is 	-7.499923
+Absolute error at [1822] is 	7.278945
+True value at [1822] is 	-0.220978
+
+Neural network output data size is 2874
+Test output data size is 2874
+

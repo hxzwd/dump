@@ -1,0 +1,245 @@
+NN = newff(InputDataLimits, [NumOfHiddenNeurons NumOfOutputNeurons], {HiddenLayerActivationFunc, OutputLayerActivationFunc}, TrainMethod, LearningFunction, CostFunction);
+
+NN.trainParam.goal = TrainGoal;
+NN.trainParam.epochs = TrainEpochs;
+
+
+
+
+disp('	  |										|')
+
+
+
+SumSquaredError = 0.01;
+Spread = 1;
+nn = newrb(X, Y, SumSquaredError, Spread)
+nn_train_out = nn(X)
+
+
+OutFileName = string('nnout.txt');
+PrecVal = 15;
+
+dlmwrite('nnout_on_training_data', [1.23456789], 'delimiter', ',', 'precision', 9);
+
+
+SumSquaredError = 0.01;
+Spread = 1;
+nn = newrb(X, Y, SumSquaredError, Spread);
+nn_train_out = nn(X);
+
+net1('nnout_on_training_data.txt', transpose(nn(X)));
+net1('nnout_errors_on_training_data.txt', transpose(Y - nn(X)));
+net1('nnout_on_test_data.txt', transpose(nn(X_2)));
+net1('nnout_errors_on_test_data.txt', transpose(Y_2 - nn(X_2)));
+
+nn1 = newrb(X, Y1, SumSquaredError, Spread);
+nn2 = newrb(X, Y2, SumSquaredError, Spread);
+
+
+function net_1(nn, X, Y, X_2, Y_2)
+
+net1('nnout_on_training_data.txt', transpose(nn(X)));
+net1('nnout_errors_on_training_data.txt', transpose(Y - nn(X)));
+net1('nnout_on_test_data.txt', transpose(nn(X_2)));
+net1('nnout_errors_on_test_data.txt', transpose(Y_2 - nn(X_2)));
+
+end
+
+
+format long;
+
+SumSquaredError_nn = 0.01;
+SumSquaredError_nn1 = 0.01;
+SumSquaredError_nn2 = 0.01;
+Spread_nn = 1;
+Spread_nn1 = 1;
+Spread_nn2 = 1;
+
+nn = newrb(X, Y, SumSquaredError_nn, Spread_nn);
+nn1 = newrb(X, Y1, SumSquaredError_nn1, Spread_nn1);
+nn2 = newrb(X, Y2, SumSquaredError_nn2, Spread_nn2);
+
+NetworksOutputs = {};
+NetworksErrors = {};
+NetworksGeneralData = {};
+Networks = {};
+OutputFiles = {};
+ShortOutputFiles = {};
+DataFuncs = {};
+
+DataFuncs = data1;
+
+NetworksOutputs{1} = {transpose(nn(X)), transpose(nn(X_2))};
+NetworksOutputs{2} = {transpose(nn1(X)), transpose(nn1(X_2))};
+NetworksOutputs{3} = {transpose(nn2(X)), transpose(nn2(X_2))};
+
+NetworksErrors{1} = {transpose(Y - nn(X)), transpose(Y_2 - nn(X_2))};
+NetworksErrors{2} = {transpose(Y1 - nn1(X)), transpose(Y1_2 - nn1(X_2))};
+NetworksErrors{3} = {transpose(Y2 - nn2(X)), transpose(Y2_2 - nn2(X_2))};
+
+NetworksGeneralData{1} = {transpose(nn(X)), transpose(nn(X_2)), transpose(Y - nn(X)), transpose(Y_2 - nn(X_2)), abs(transpose(Y - nn(X))), abs(transpose(Y_2 - nn(X_2)))};
+NetworksGeneralData{2} = {transpose(nn1(X)), transpose(nn1(X_2)), transpose(Y1 - nn(X)), transpose(Y1_2 - nn1(X_2)), abs(transpose(Y1 - nn1(X))), abs(transpose(Y1_2 - nn1(X_2)))};
+NetworksGeneralData{3} = {transpose(nn2(X)), transpose(nn2(X_2)), transpose(Y2 - nn2(X)), transpose(Y2_2 - nn2(X_2)), abs(transpose(Y2 - nn2(X))), abs(transpose(Y2_2 - nn2(X_2)))};
+
+Networks{1} = nn;
+Networks{2} = nn1;
+Networks{3} = nn2;
+
+OutputFiles{1} = {string('nnout_on_training_data.txt'), string('nnout_errors_on_training_data.txt'), string('nnout_on_test_data.txt'), string('nnout_errors_on_test_data.txt'), string('nnout_abs_errors_on_training_data.txt'), string('nnout_abs_errors_on_test_data.txt')};
+OutputFiles{2} = {string('nn1out_on_training_data.txt'), string('nn1out_errors_on_training_data.txt'), string('nn1out_on_test_data.txt'), string('nn1out_errors_on_test_data.txt'), string('nn1out_abs_errors_on_training_data.txt'), string('nn1out_abs_errors_on_test_data.txt')};
+OutputFiles{3} = {string('nn2out_on_training_data.txt'), string('nn2out_errors_on_training_data.txt'), string('nn2out_on_test_data.txt'), string('nn2out_errors_on_test_data.txt'), string('nn2out_abs_errors_on_training_data.txt'), string('nn2out_abs_errors_on_test_data.txt')};
+
+ShortOutputFiles{1} = {string('nn_tr.txt'), string('nn_etr.txt'), string('nn_ts.txt'), string('nn_ets.txt'), string('nn_aetr.txt'), string('nn_aets.txt')};
+ShortOutputFiles{2} = {string('nn1_tr.txt'), string('nn1_etr.txt'), string('nn1_ts.txt'), string('nn1_ets.txt'), string('nn1_aetr.txt'), string('nn1_aets.txt')};
+ShortOutputFiles{3} = {string('nn2_tr.txt'), string('nn2_etr.txt'), string('nn2_ts.txt'), string('nn2_ets.txt'), string('nn2_aetr.txt'), string('nn2_aets.txt')};
+
+net1('nnout_on_training_data.txt', NetworksOutputs{1}{1});
+net1('nnout_errors_on_training_data.txt', NetworksErrors{1}{1});
+net1('nnout_on_test_data.txt', NetworksOutputs{1}{2});
+net1('nnout_errors_on_test_data.txt', NetworksErrors{1}{2});
+
+net1('nn1out_on_training_data.txt', NetworksOutputs{2}{1});
+net1('nn1out_errors_on_training_data.txt', NetworksErrors{2}{1});
+net1('nn1out_on_test_data.txt', NetworksOutputs{2}{2});
+net1('nn1out_errors_on_test_data.txt', NetworksErrors{2}{2});
+
+net1('nn2out_on_training_data.txt', NetworksOutputs{3}{1});
+net1('nn2out_errors_on_training_data.txt', NetworksErrors{3}{1});
+net1('nn2out_on_test_data.txt', NetworksOutputs{3}{2});
+net1('nn2out_errors_on_test_data.txt', NetworksErrors{3}{2});
+
+net1('nnout_abs_errors_on_training_data.txt', abs(NetworksErrors{1}{1}));
+net1('nnout_abs_errors_on_test_data.txt', abs(NetworksErrors{1}{1}));
+net1('nn1out_abs_errors_on_training_data.txt', abs(NetworksErrors{2}{1}));
+net1('nn1out_abs_errors_on_test_data.txt', abs(NetworksErrors{2}{1}));
+net1('nn2out_abs_errors_on_training_data.txt', abs(NetworksErrors{3}{1}));
+net1('nn2out_abs_errors_on_test_data.txt', abs(NetworksErrors{3}{1}));
+
+proccess_data('nn_tr.txt', NetworksOutputs{1}{1});
+proccess_data('nn_etr.txt', NetworksErrors{1}{1});
+proccess_data('nn_ts.txt', NetworksOutputs{1}{2});
+proccess_data('nn_ets.txt', NetworksErrors{1}{2});
+
+proccess_data('nn1_tr.txt', NetworksOutputs{2}{1});
+proccess_data('nn1_etr.txt', NetworksErrors{2}{1});
+proccess_data('nn1_ts.txt', NetworksOutputs{2}{2});
+proccess_data('nn1_ets.txt', NetworksErrors{2}{2});
+
+proccess_data('nn2_tr.txt', NetworksOutputs{3}{1});
+proccess_data('nn2_etr.txt', NetworksErrors{3}{1});
+proccess_data('nn2_ts.txt', NetworksOutputs{3}{2});
+proccess_data('nn2_ets.txt', NetworksErrors{3}{2});
+
+
+proccess_data('nn_aetr.txt', abs(NetworksErrors{1}{1}));
+proccess_data('nn_aets.txt', abs(NetworksErrors{1}{2}));
+proccess_data('nn1_aetr.txt', abs(NetworksErrors{2}{1}));
+proccess_data('nn1_aets.txt', abs(NetworksErrors{2}{2}));
+proccess_data('nn2_aetr.txt', abs(NetworksErrors{3}{1}));
+proccess_data('nn2_aets.txt', abs(NetworksErrors{3}{2}));
+
+for i = 1:length(ShortOutputFiles)
+	for j = 1:length(ShortOutputFiles{i})
+		proccess_data(ShortOutputFiles{i}{j}, NetworksGeneralData{i}{j});
+	end
+end
+
+SQUARED_MSE_GOAL = 0.0003397;
+SQUARED_MSE1_GOAL = 0.0004160;
+SQUARED_MSE2_GOAL_1 = 0.0002656;
+SQUARED_MSE2_GOAL_2 = 0.000264;
+
+
+e01 = abs(NetworksErrors{1}{1});
+e02 = abs(NetworksErrors{1}{2});
+e11 = abs(NetworksErrors{2}{1});
+e12 = abs(NetworksErrors{2}{2});
+e21 = abs(NetworksErrors{3}{1});
+e22 = abs(NetworksErrors{3}{2});
+
+ee01 = e01./abs(NetworksOutputs{1}{1});
+ee02 = e02./abs(NetworksOutputs{1}{2});
+ee11 = e11./abs(NetworksOutputs{2}{1});
+ee12 = e12./abs(NetworksOutputs{2}{2});
+ee21 = e21./abs(NetworksOutputs{3}{1});
+ee22 = e22./abs(NetworksOutputs{3}{2});
+
+format shortG;
+
+pee01 = ee01*100.0;
+pee02 = ee02*100.0;
+pee11 = ee11*100.0;
+pee12 = ee12*100.0;
+pee21 = ee21*100.0;
+pee22 = ee22*100.0;
+
+
+
+format long;
+
+
+
+funs0 = {...
+		{ @func1, string('Hello message') },...
+		{ @func2, string('y = sin(x)') },...
+		{ @func3, string('y = cos(x)') },...
+		{ @func4, string('proccess data') },...
+		{ @func5, string('get neural network data') },...
+		{ @func6, string('write neural network data') },...
+		{ @func7, string('inputname test') },...
+		{ @func3, string('y = cos(x)') }...
+		};
+		
+
+
+	funs1 = {};
+
+	funs1{1} = [...
+		string('Hello message')...
+		string('y = sin(x)')...
+		string('y = cos(x)')...
+		string('proccess data')...
+		string('get neural network data')...
+		string('write neural network data'')...
+		string('inputname test')...
+		string('y = cos(x)')...
+		];
+
+	funs1{2} = {...
+		@func1,...
+		@func2,...
+		@func3,...
+		@func4,...
+		@func3,...
+		@func3,...
+		@func3,...
+		@func3,...
+		};
+
+
+nn.name = 'NN (x, y) -> (a, b)'; NN = nn.name;
+nn1.name = 'NN1 (x, y) -> a'; NN1 = nn1.name;
+nn2.name = 'NN2 (x, y) -> b'; NN2 = nn2.name;
+
+SNN = nn.userdata; SNN.Info =  'Field for information'; SNN.Misc = 'Misc data';
+SNN1 = nn1.userdata; SNN1.Info =  'Field for information'; SNN1.Misc = 'Misc data';
+SNN2 = nn2.userdata; SNN2.Info =  'Field for information'; SNN2.Misc = 'Misc data';
+
+nn.userdata = SNN; nn1.userdata = SNN1;  nn2.userdata = SNN2;
+Comments = [{string('nn_data'), string('nn1_data'), string('nn2_data')}...
+	 {string('nn_data_t'), string('nn1_data_t'), string('nn2_data_t')}]; 
+Networks = {nn, nn1, nn2};
+Nns = Networks;
+Data = [{X_2, X_2, X_2}, {X, X, X}];
+TData = [{Y_2, Y1_2, Y2_2}, {Y, Y1, Y2}];
+
+
+
+
+nn1.trainParam.goal = 0.01;
+nn1.trainFcn = 'trainc';
+nn1.trainParam.showWindow = false;
+nn1 = train(nn1, X, Y1);
+
+main({nn1}, {X_2}, {Y1_2}, {string('nn1_data')});
+
