@@ -1,0 +1,15 @@
+package main
+
+import (
+	"fmt"
+	"github.com/gonum/matrix/mat64"
+)
+
+func main() {
+	fmt.Println("Fast golang tests\n")
+	
+	zero := mat64.NewDense(3, 4, nil)
+	fmt.Println(zero)
+
+	data := make([]float64, 6, 6
+}
