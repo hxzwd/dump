@@ -1,0 +1,18 @@
+CC=gcc
+CFLAGS=-c -Wall
+LDFLAGS=
+
+SOURCES=main.c
+OBJECTS=$(SOURCES:.c=.o)
+EXECUTABLE=test
+
+all: $(SOURCES) $(EXECUTABLE)
+
+$(EXECUTABLE): $(OBJECTS)
+	$(CC) $(LDFLAGS) $(OBJECTS) -o $(EXECUTABLE)
+
+$(OBJECTS): $(SOURCES)
+	$(CC) $(CFLAGS) $(SOURCES)
+
+clean: $(OBJECTS)
+	rm -rf *.o $(EXECUTABLE)
