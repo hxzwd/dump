@@ -3,7 +3,7 @@ CC=gcc
 CFLAGS=-c -Wall
 LDFLAGS=
 ALLTARGETS=t_errors
-SOURCES=t_errors.c t_errors2.c t_assert.c t_time.c t_envs.c t_random.c t_fork.c t_fork2.c t_signal.c
+SOURCES=t_errors.c t_errors2.c t_assert.c t_time.c t_envs.c t_random.c t_fork.c t_fork2.c t_signal.c t_exec.c
 
 all: $(ALLTARGETS)
 
