@@ -5,7 +5,7 @@ import pandas as pd
 import re
 import pickle
 
-file = open('data/cells.bin', 'rb')
+file = open('cells.bin', 'rb')
 DF = pickle.load(file)
 file.close()
 
@@ -16,16 +16,16 @@ for i in DF[1:]:
 
 d.index = range(0, len(d.index))
 
-file = open('data/merged_cells.bin', 'wb')
+file = open('merged_cells.bin', 'wb')
 pickle.dump(d, file)
 file.close()
 
-d.to_csv('data/pandas/merged_cells.csv', sep = '\t')
+d.to_csv('pandas/merged_cells.csv', sep = '\t')
 
 dd = d[ [ i for i in d.columns if i != 'dt' ] ].values
 hh = d[ [ i for i in d.columns if i != 'dt' ] ].columns.tolist()
 
-file = open('data/cells_pure.txt', 'w')
+file = open('cells_pure.txt', 'w')
 
 file.write("".join(i + '\t' for i in hh)[:-1] + '\n')
 
