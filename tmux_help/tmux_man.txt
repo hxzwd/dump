@@ -1,0 +1,29 @@
+tmux 				- session 0
+tmux new -s <session name> 	- create <session name>
+<C-b> 				- command prefix
+<C-b c>				- new window
+<C-b w>				- windows list
+<C-b n>				- next window
+<C-b p>				- previous window
+<C-b #num>			- window with number #num
+
+<C-b ">|tmux split-window-h	- split window horz
+<C-b %>|tmux split-window-v	- split window vert
+<C-b c-#arrow>			- change panel size
+<C-b #arrow>			- change current panel
+<C-b x>				- close window
+<C-b d>|tmux detach		- detach from session
+tmux ls				- sessions list
+tmux attach|tmux attach -t #ses - connect to the 
+last|#ses session
+<C-b s>				- choose session
+tmux kill-session -t #ses	- kill #ses session
+tmux kill-server		- kill all sessions
+tmux list-commands		- list of all commands
+
+
+
+##########################################################
+.bashrc
+
+alias rtmux='~/./tmux_script.sh'
