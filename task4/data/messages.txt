@@ -1,0 +1,168 @@
+case $- in
+esac
+HISTCONTROL=ignoreboth
+shopt -s histappend
+HISTSIZE=1000
+HISTFILESIZE=2000
+shopt -s checkwinsize
+if [ -z "${debian_chroot:-}" ] && [ -r /etc/debian_chroot ]; then
+fi
+case "$TERM" in
+esac
+if [ -n "$force_color_prompt" ]; then
+fi
+if [ "$color_prompt" = yes ]; then
+else
+fi
+unset color_prompt force_color_prompt
+case "$TERM" in
+xterm*|rxvt*)
+esac
+if [ -x /usr/bin/dircolors ]; then
+fi
+GOBIN="/usr/local/go/bin"
+GOSRC="/home/hjk/go/src"
+UHOME="/home/hjk"
+QPRJD="/home/hjk/qt_projects"
+CODED="/home/hjk/code"
+UIRD="/home/hjk/code/sem6/uir"
+SEM6D="/home/hjk/code/sem6"
+RBCODE="/home/hjk/rbcode"
+NIXAD="/home/hjk/unix_a"
+DOWNLOADS="/home/hjk/Загрузки"
+QT56="/home/hjk/Qt5.6.1"
+QTC56="/home/hjk/Qt5.6.1/Tools/QtCreator"
+QTCB56="/home/hjk/Qt5.6.1/Tools/QtCreator/bin"
+SHCODE="/home/hjk/shcode"
+SSDIR="/home/hjk/session"
+SSU="/home/hjk/session/utils"
+SSI="/home/hjk/session/info"
+SSL="/home/hjk/session/log"
+SSD="/home/hjk/session/dump"
+BLDD="/home/hjk/build"
+WEBFILES="/home/hjk/webfiles"
+WEBDATA="/home/hjk/webdata"
+TUTORSDIR="/home/hjk/tutors"
+CURRENT_PATH=""
+MATLABCODE="/home/hjk/matlabcode"
+WFROOT="/home/hjk/wolframcode"
+WFCODE="/home/hjk/wolframcode/wcode"
+WFIMGS="/home/hjk/wolframcode/wcode/imgs"
+WFDATA="/home/hjk/wolframcode/wcode/data"
+TEXDATA="/home/hjk/wolframcode/wcode/latex"
+IMAGES_PATH="/home/hjk/matlabcode/nnet/images"
+VARPPID=$PPID
+VARPID=$PID
+export VARPPID
+export VARPID
+DEFAULT_SCRIPTS_DIR="/home/hjk/webdata/scripts/"
+IPY="/usr/bin/ipython"
+alias mhlp=
+alias myhelp2=
+alias sublmh2=
+alias nanomh2=
+alias mutgz=
+alias mtgz=
+alias mtgf=
+alias mtgfd=
+alias muzip=
+alias mzip=
+alias mzipf=
+alias cdcp=
+alias cdback=
+alias shcp=
+GTRMGEOM=80x25-0+5
+alias otrm=
+alias gtrm_geom_get=
+alias geomch=
+gtrm_geom_get
+alias gtrmg=
+alias shgoogle=
+alias matlabe=
+alias wolframe=
+alias ll=
+alias la=
+alias l=
+alias rm=
+alias cp=
+alias mv=
+alias mkdir=
+alias h=
+alias j=
+alias r=
+alias which=
+alias ..=
+alias path=
+alias print=
+alias pjet=
+alias background=
+alias du=
+alias df=
+alias ipy3=
+alias la=
+alias ls=
+alias lx=
+alias lk=
+alias lc=
+alias lu=
+alias lr=
+alias lt=
+alias lm=
+alias tree=
+alias chi=
+alias chni=
+alias ipye=
+alias bpye=
+alias shc=
+alias gtrm=
+alias xtrm=
+alias utrm=
+alias sublrc=
+alias sublss=
+alias sublar=
+alias sublxr=
+alias sublmh=
+alias nanorc=
+alias nanoss=
+alias nanoar=
+alias nanoxr=
+alias nanomh=
+alias myhelp=
+alias testalias=
+alias mcfar=
+alias mc=
+alias mlenv=
+alias setalias=
+alias msubl=
+alias testalias3=
+alias testalias2=
+alias tutorlist=
+alias tutor=
+alias showscriptsdir=
+alias scriptslist=
+alias script=
+alias mce=
+alias nsimgs=
+alias pullimgs=
+MATLABROOT=/home/hjk/qt_projects/MATLAB
+export MATLABROOT
+LD_LIBRARY_PATH=$MATLABROOT/bin/glnxa64:$MATLABROOT/sys/os/glnxa64:$LD_LIBRARY_PATH
+export LD_LIBRARY_PATH
+PATH=$MATLABROOT/bin:$PATH  
+export PATH
+alias alert=
+if [ -f ~/.bash_aliases ]; then
+fi
+if ! shopt -oq posix; then
+fi
+env=~/.ssh/agent.env
+agent_is_running() {
+agent_has_keys() {
+agent_load_env() {
+agent_start() {
+if ! agent_is_running; then
+fi
+if ! agent_is_running; then
+elif ! agent_has_keys; then
+fi
+unset env
